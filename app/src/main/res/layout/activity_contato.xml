@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContatoActivity"
+    tools:context=".activities.ContatoActivity"
     android:orientation="vertical">
 
 
@@ -21,24 +21,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Telefone" />
+
     <EditText
         android:id="@+id/EmailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="E-mail"/>
+
+    <EditText
+        android:id="@+id/RuaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Rua"/>
+
+    <EditText
+        android:id="@+id/NumeroEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Numero" />
+
+    <EditText
+        android:id="@+id/CidadeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cidade/Estado" />
+
     <RatingBar
         android:id="@+id/pontuacaoratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:numStars="5"
+        android:layout_gravity="center"
         android:max="10"
-        android:layout_gravity="center"/>
+        android:numStars="5" />
 
     <Button
         android:id="@+id/SalvarContatoButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar" />
+
+
 
 
 </LinearLayout>
