@@ -9,7 +9,9 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import br.senac.joaovsstrindade.agenda.R;
+import br.senac.joaovsstrindade.agenda.dao.ContatoDAO;
 import br.senac.joaovsstrindade.agenda.model.ContatoEntity;
+import br.senac.joaovsstrindade.agenda.model.EnderecoEntity;
 
 public class ContatoActivity extends AppCompatActivity {
 
@@ -26,9 +28,9 @@ public class ContatoActivity extends AppCompatActivity {
 
                 EditText nomeEditTest = findViewById(R.id.NomeEditText);
                 EditText telefoneeditText = findViewById(R.id.TelefoneEditText);
-                EditText ruaEditTest = findViewById(R.id.RuaeditText);
-                EditText numeroEditTest = findViewById(R.id.numeroEditTest);
-                EditText cidadeEdi
+                EditText ruaEditTest = findViewById(R.id.RuaEditText);
+                EditText numeroEditTest = findViewById(R.id.NumeroEditText);
+                EditText cidadeEditTest = findViewById(R.id.CidadeEditText);
 
                 EditText emailEditText = findViewById(R.id.EmailEditText);
                 RatingBar pontuacaoRantingBar = findViewById(R.id.pontuacaoratingBar);
@@ -39,11 +41,15 @@ public class ContatoActivity extends AppCompatActivity {
                         telefoneeditText.getText().toString(),
                         Double.valueOf(pontuacaoRantingBar.getProgress()))
                         ;
+                ContatoDAO contatoDAO = new ContatoDAO( ContatoActivity.this);
+
+                contatoDAO.salvar(contato);
+
+                EnderecoEntity endereco = new EnderecoEntity(ruaEditTest.getText().toString(),numeroEditTest.getText().toString(),cidadeEditTest.getText().toString());
 
 
 
-
-                Toast.makeText(ContatoActivity.this,"Contato Salvo!" + contato,  Toast.LENGTH_SHORT).show();
+                Toast.makeText(ContatoActivity.this,"Contato Salvo!"   ,  Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
