@@ -13,6 +13,10 @@ public class EnderecoEntity {
 
     }
 
+    public EnderecoEntity(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

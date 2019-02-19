@@ -20,6 +20,8 @@ public class ContatoEntity {
 
     }
 
+    public ContatoEntity() {
+    }
 
     public Integer getId() {
         return id;
@@ -53,14 +55,14 @@ public class ContatoEntity {
         this.pontuacao = pontuacao;
     }
 
-    @Override
-    public String toString() {
-        return
-                "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", pontuacao=" + pontuacao ;
-
-    }
+//    @Override
+//    //public String toString() {
+//        return
+//                "nome='" + nome + '\'' +
+//                ", email='" + email + '\'' +
+//                ", telefone='" + telefone + '\'' +
+//                ", pontuacao=" + pontuacao ;
+//
+//    }
 }
 

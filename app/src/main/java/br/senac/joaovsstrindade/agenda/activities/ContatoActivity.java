@@ -1,5 +1,6 @@
 package br.senac.joaovsstrindade.agenda.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -50,6 +51,9 @@ public class ContatoActivity extends AppCompatActivity {
 
 
                 Toast.makeText(ContatoActivity.this,"Contato Salvo!"   ,  Toast.LENGTH_SHORT).show();
+                Intent main = new Intent (ContatoActivity.this, MainActivity.class);
+                startActivity(main);
+
                 finish();
             }
         });
