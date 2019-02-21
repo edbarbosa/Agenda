@@ -14,40 +14,33 @@ import br.senac.joaovsstrindade.agenda.model.EnderecoEntity;
 public class EnderecoDAO {
 
 
-            private SQlitehelper sQlitehelper;
+    private SQlitehelper sQlitehelper;
 
-            private  SQlitehelper sqLiteDatabase;
+    private SQLiteDatabase sqLiteDatabase;
 
-            public EnderecoDAO(Context context) { this.sQlitehelper = new sqLiteHelper(Context); }
+    public EnderecoDAO(Context context) {
+        sQlitehelper = new SQlitehelper(context);
+    }
 
-            public  void  salvar(ContatoEntity endereco){
+    public void salvar(EnderecoEntity endereco) {
 
-                sqLiteDatabase = sQlitehelper.getWritableDatabase();
+        sqLiteDatabase = sQlitehelper.getWritableDatabase();
 
-                ContentValues values = new ContentValues();
-                values.put("NOME", endereco.getNome());
-                values.put("TELEFONE", endereco.getTelefone());
-                values.put("PONTUACAO", endereco.getPontuacao());
+        ContentValues values = new ContentValues();
+        values.put("RUA", endereco.getRua());
+        values.put("NUMERO", endereco.getNumero());
+        values.put("CIDADE_ESTADO", endereco.getCidade());
 
-                SQLiteDatabase. insert( ENDERECO , null, values);
+        sqLiteDatabase.insert("ENDERECO", null, values);
 
-                sqLiteDatabase.close();
+        sqLiteDatabase.close();
 
-            }
-            public List(EnderecoEntity) listar(){
-                sqLiteDatabase = sqLiteHelper.getReadableDatabase();
-
-                String sql = "SELECT * FROM ENDERECO;";
-
-                Cursor c = sqLiteDatabase.rawQuery(sql, null);
-
-                List<ContatoEntity> Endereco = new ArrayList<>();
+    }
 
 
-
-            }
-
-        }
 }
+
+
+
 
 

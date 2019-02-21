@@ -8,14 +8,12 @@ public class ContatoEntity {
     private double pontuacao;
 
 
-    public ContatoEntity(String nome,String email,  String telefone, double pontuacao) {
+    public ContatoEntity(String nome, String email, String telefone, double pontuacao) {
 
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.pontuacao = pontuacao;
-
-
 
 
     }
@@ -55,14 +53,14 @@ public class ContatoEntity {
         this.pontuacao = pontuacao;
     }
 
-//    @Override
-//    //public String toString() {
-//        return
-//                "nome='" + nome + '\'' +
-//                ", email='" + email + '\'' +
-//                ", telefone='" + telefone + '\'' +
-//                ", pontuacao=" + pontuacao ;
-//
-//    }
+    @Override
+    public String toString() {
+        return
+                "nome='"+nome +'\''+
+            ", email='"+email +'\''+
+            ", telefone='"+telefone +'\''+
+            ", pontuacao="+pontuacao;
+
+    }
 }
 

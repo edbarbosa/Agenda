@@ -46,7 +46,8 @@ public class ContatoActivity extends AppCompatActivity {
 
                 contatoDAO.salvar(contato);
 
-                EnderecoEntity endereco = new EnderecoEntity(ruaEditTest.getText().toString(),numeroEditTest.getText().toString(),cidadeEditTest.getText().toString());
+                EnderecoEntity endereco = new EnderecoEntity(ruaEditTest.getText().toString()
+                        ,numeroEditTest.getText().toString(),cidadeEditTest.getText().toString());
 
 
 
