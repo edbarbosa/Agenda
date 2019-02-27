@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
                 ArrayAdapter<ContatoEntity> adapter = new ArrayAdapter<ContatoEntity>(MainActivity.this, android.R.layout.simple_list_item_1, contatos);
 
                 lista.setAdapter(adapter);
+            }
+        });
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ContatoEntity contato = (ContatoEntity)lista.getItemAtPosition(position);
+                Intent intentContatoActivity = new Intent(MainActivity.this,
+                 ContatoActivity.class);
+                intentContatoActivity.putExtra("contato", contato);
+                startActivity(intentContatoActivity);
+
             }
         });
     }

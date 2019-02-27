@@ -52,7 +52,7 @@
       android:layout_below="@id/listaContatosListeView"
       android:ems="10"
       android:inputType="textPersonName"
-      android:text="Buscar" />
+      android:hint="Buscar" />
 
 
 </RelativeLayout>

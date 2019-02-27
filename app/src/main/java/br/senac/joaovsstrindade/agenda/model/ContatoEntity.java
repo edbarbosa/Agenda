@@ -1,14 +1,16 @@
 package br.senac.joaovsstrindade.agenda.model;
 
-public class ContatoEntity {
+import java.io.Serializable;
+
+public class ContatoEntity implements Serializable {
     private Integer id;
     private String nome;
     private String email;
     private String telefone;
-    private double pontuacao;
+    private Double pontuacao;
 
 
-    public ContatoEntity(String nome, String email, String telefone, double pontuacao) {
+    public ContatoEntity(String nome, String email, String telefone, Double pontuacao) {
 
         this.nome = nome;
         this.email = email;
@@ -45,11 +47,11 @@ public class ContatoEntity {
         this.telefone = telefone;
     }
 
-    public double getPontuacao() {
+    public Double getPontuacao() {
         return pontuacao;
     }
 
-    public void setPontuacao(double pontuacao) {
+    public void setPontuacao(Double pontuacao) {
         this.pontuacao = pontuacao;
     }
 

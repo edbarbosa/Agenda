@@ -16,10 +16,26 @@ import br.senac.joaovsstrindade.agenda.model.EnderecoEntity;
 
 public class ContatoActivity extends AppCompatActivity {
 
+    ContatoEntity contato;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contato);
+
+        Intent intent = getIntent();
+
+         contato = (ContatoEntity) intent.getSerializableExtra("contato");
+        if(contato != null){
+            EditText NomeEditText = findViewById(R.id.NomeEditText);
+            EditText TelefoneEditText = findViewById(R.id.TelefoneEditText);
+            RatingBar pontuacaoratingBar = findViewById(R.id.pontuacaoratingBar);
+
+            NomeEditText.setText(contato.getNome());
+            TelefoneEditText.setText(contato.getTelefone());
+            pontuacaoratingBar.setProgress(contato.getPontuacao().intValue());
+        }
+
 
         // Ação de click no salvar
         Button salavarcontatoButton = findViewById(R.id.SalvarContatoButton);
@@ -36,12 +52,19 @@ public class ContatoActivity extends AppCompatActivity {
                 EditText emailEditText = findViewById(R.id.EmailEditText);
                 RatingBar pontuacaoRantingBar = findViewById(R.id.pontuacaoratingBar);
 
+                if (contato != null){
+                    contato.setNome(nomeEditTest.getText().toString());
+                        emailEditText.getText().toString();
+                        telefoneeditText.getText().toString();
+                       Double.valueOf(pontuacaoRantingBar.getProgress());
+                } else {
 
-                ContatoEntity contato = new ContatoEntity(nomeEditTest.getText().toString(),
-                        emailEditText.getText().toString(),
-                        telefoneeditText.getText().toString(),
-                        Double.valueOf(pontuacaoRantingBar.getProgress()))
-                        ;
+                    contato = new ContatoEntity(nomeEditTest.getText().toString(),
+                            emailEditText.getText().toString(),
+                            telefoneeditText.getText().toString(),
+                            Double.valueOf(pontuacaoRantingBar.getProgress()))
+                    ;
+                }
                 ContatoDAO contatoDAO = new ContatoDAO( ContatoActivity.this);
 
                 contatoDAO.salvar(contato);
