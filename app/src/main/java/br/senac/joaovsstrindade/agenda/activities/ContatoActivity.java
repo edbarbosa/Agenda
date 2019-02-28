@@ -3,6 +3,9 @@ package br.senac.joaovsstrindade.agenda.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,11 +40,22 @@ public class ContatoActivity extends AppCompatActivity {
         }
 
 
-        // Ação de click no salvar
-        Button salavarcontatoButton = findViewById(R.id.SalvarContatoButton);
-        salavarcontatoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_salvar, menu);
+        return super.onCreateOptionsMenu(menu);
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_salvar:
 
                 EditText nomeEditTest = findViewById(R.id.NomeEditText);
                 EditText telefoneeditText = findViewById(R.id.TelefoneEditText);
@@ -54,9 +68,9 @@ public class ContatoActivity extends AppCompatActivity {
 
                 if (contato != null){
                     contato.setNome(nomeEditTest.getText().toString());
-                        emailEditText.getText().toString();
-                        telefoneeditText.getText().toString();
-                       Double.valueOf(pontuacaoRantingBar.getProgress());
+                    contato.setEmail( emailEditText.getText().toString());
+                    contato.setTelefone( telefoneeditText.getText().toString());
+                    contato.setPontuacao(  Double.valueOf(pontuacaoRantingBar.getProgress()));
                 } else {
 
                     contato = new ContatoEntity(nomeEditTest.getText().toString(),
@@ -79,7 +93,7 @@ public class ContatoActivity extends AppCompatActivity {
                 startActivity(main);
 
                 finish();
-            }
-        });
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

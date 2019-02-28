@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.renderscript.Sampler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +30,12 @@ public class ContatoDAO {
         values.put("TELEFONE", contato.getTelefone());
         values.put("PONTUACAO", contato.getPontuacao());
 
-        sqLiteDatabase.insert("CONTATO", null, values);
+        if (contato.getId() != null){
+            sqLiteDatabase.update("CONTATO",values, "ID=?", new String[]{contato.getId().toString()});
 
+        }else {
+            sqLiteDatabase.insert("CONTATO", null, values);
+        }
         sqLiteDatabase.close();
     }
 

@@ -38,21 +38,24 @@
 
   <Button
       android:id="@+id/buscarButton"
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentStart="true"
-      android:layout_below="@id/buscareditText"
+      android:layout_alignParentBottom="true"
+      android:layout_marginStart="125dp"
+      android:layout_marginBottom="188dp"
       android:text="Buscar" />
 
   <EditText
       android:id="@+id/buscareditText"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
       android:layout_centerHorizontal="true"
-      android:layout_below="@id/listaContatosListeView"
+      android:layout_marginTop="215dp"
       android:ems="10"
       android:inputType="textPersonName"
-      android:hint="Buscar" />
+      android:text="Buscar" />
 
 
 </RelativeLayout>
